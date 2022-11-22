@@ -1,5 +1,9 @@
 
 var service;
+let xhr = new XMLHttpRequest();
+xhr.open("POST","language.googleapis.com/v1/documents:analyzeEntities?key=AIzaSyC5lZM_AOHB4Jj-ahHW1Peo75srAZfhAJ8")
+
+AIzaSyC5lZM_AOHB4Jj-ahHW1Peo75srAZfhAJ8
 
 
 function barycentreLatitude(listeAdresseLatitude){
