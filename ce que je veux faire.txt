@@ -3,8 +3,10 @@ exemple: plusieurs pers veulent aller au bar mais ne se trouvent pas au meme end
 	fonctionnalite supplementaire si un mec est tres loin alors cette pers ferra plus de trajet que les autres(en vrai logique il a qua pas casser les couilles)
 
 je pense:
-	-pendre la position des mecs
-	-recuperer la position de tt les bars(+4 etoiles) 
-		-dans air de la forme geometrique
-		-dans cercle distance chaque pers
+	-prendre la position des mecs
+	-trouver vers ou je vais devoir trouver des bars 
+	 apres reflexion le baricentre est la solution la plus optimal
+	-une fois ce point trouve chercher tt les bars(+4 etoiles) 
+		-dans cercle d'un certain rayon 
+		chuis pas encore sur de la methode
 		-
