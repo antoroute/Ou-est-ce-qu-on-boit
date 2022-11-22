@@ -1,0 +1,10 @@
+exemple: plusieurs pers veulent aller au bar mais ne se trouvent pas au meme endroit
+	on cherchera donc un bar(bien note si possible) a equidistance de tout nos protagonistes
+	fonctionnalite supplementaire si un mec est tres loin alors cette pers ferra plus de trajet que les autres(en vrai logique il a qua pas casser les couilles)
+
+je pense:
+	-pendre la position des mecs
+	-recuperer la position de tt les bars(+4 etoiles) 
+		-dans air de la forme geometrique
+		-dans cercle distance chaque pers
+		-
