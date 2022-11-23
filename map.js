@@ -1,4 +1,4 @@
-import {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location} from "./barycentre.js";
+import {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location,radius,type} from "./barycentre.js";
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var lat = barycentreLatitude(listeAdresseLatitude);
 var lon = barycentreLongitude(listeAdresseLongitude);
@@ -29,7 +29,9 @@ function initMap() {
         }
     });
 }
+console.log(google.maps.places.PlaceSearchRequest({location: {lat: lat, lng: lon},radius:radius,type:type}));
 window.onload = function(){
+    //console.log(google.maps.places.PlaceSearchRequest(location,radius,type));
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap(); 
     var marker = new google.maps.Marker({

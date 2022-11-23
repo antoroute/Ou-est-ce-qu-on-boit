@@ -28,4 +28,4 @@ var type = "Bar"
 // google.maps.places.PlaceSearchRequest(location,radius,type);
 
 
-export {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location};
+export {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location,radius,type};
