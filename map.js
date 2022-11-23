@@ -56,7 +56,7 @@ function rechercheBar(){
     });
 }
 
-var objInfoWindow = new google.maps.InfoWindow();
+var objInfoWindow = new google.maps.InfoWindow()
 
 function createMarker(objPlace) {
     
@@ -68,7 +68,7 @@ function createMarker(objPlace) {
     });
 
     google.maps.event.addListener(objMarker, 'click', function() {
-        var strHTML = "<b>" + objPlace.name + "</b><br />";
+        var strHTML = "<b>" + objPlace.name + "</b><br />"+objPlace.vicinity+ "</b><br />";
         if (objPlace.types[0] == "bar") {
             strHTML += "Bistrot";
         } else if (objPlace.types[0] == "cafe") {
