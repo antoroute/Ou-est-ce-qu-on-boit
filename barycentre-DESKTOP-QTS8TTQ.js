@@ -1,3 +1,7 @@
+
+var service;
+
+
 function barycentreLatitude(listeAdresseLatitude){
     var latitude=0;
     for(var iterationLatitude=0;iterationLatitude<listeAdresseLatitude.length;iterationLatitude++){
@@ -25,7 +29,4 @@ var radius = 500;
 var location = {lat: 48.848963, lng: 2.3517686666666666};
 var type = "Bar"
 
-// google.maps.places.PlaceSearchRequest(location,radius,type);
-
-
-export {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location};
+google.maps.places.PlaceSearchRequest(location,radius,type);
