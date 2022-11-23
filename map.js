@@ -44,10 +44,11 @@ function rechercheBar(){
     service.nearbySearch(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
+            console.log(results[i]['vicinity']);
             console.log(results[i]['geometry']['viewport']['Za']['hi']);
             console.log(results[i]['geometry']['viewport']['Ia']['hi']);
             let positionBar ={lat: results[i]['geometry']['viewport']['Za']['hi'], lng: results[i]['geometry']['viewport']['Ia']['hi']};
-            new google.maps.Marker({position:positionBar,map:map});
+            new google.maps.Marker({position:positionBar,map:map,label:'i'});
         }
       }
     });
