@@ -35,7 +35,7 @@ function rechercheBar(){
     var request = {
         location: {lat: lat, lng: lon},
         radius: '500',
-        type: 'bar',
+        type: ['bar']
       };
     
     
@@ -44,15 +44,44 @@ function rechercheBar(){
     service.nearbySearch(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            console.log(results[i]['vicinity']);
-            console.log(results[i]['geometry']['viewport']['Za']['hi']);
-            console.log(results[i]['geometry']['viewport']['Ia']['hi']);
-            let positionBar ={lat: results[i]['geometry']['viewport']['Za']['hi'], lng: results[i]['geometry']['viewport']['Ia']['hi']};
-            new google.maps.Marker({position:positionBar,map:map,label:'i'
-        });
+            if (results[i].types[0] !== "bar") {
+                results.pop(i);   
+            }else{createMarker(results[i])};
+            //console.log(results[i]);
+            //console.log(results[i]['geometry']['viewport']['Za']['hi']);
+            //console.log(results[i]['geometry']['viewport']['Ia']['hi']);
+            
         }
       }
     });
+}
+
+var objInfoWindow = new google.maps.InfoWindow()
+
+function createMarker(objPlace) {
+    
+    var objMarker = new google.maps.Marker({
+        position: objPlace.geometry.location,
+        map: map,
+        icon: "./biere.png",
+        title: objPlace.name
+    });
+
+    google.maps.event.addListener(objMarker, 'click', function() {
+        var strHTML = "<b>" + objPlace.name + "</b><br />";
+        if (objPlace.types[0] == "bar") {
+            strHTML += "Bistrot";
+        } else if (objPlace.types[0] == "cafe") {
+            strHTML += "Café";
+        } else if (objPlace.types[0] == "restaurant") {
+            strHTML += "Resto";      
+        } else {
+            strHTML += "Inconnu (" + objPlace.types[0] + ")";   
+        }
+        
+        objInfoWindow.setContent(strHTML);
+        objInfoWindow.open(map, this);
+    }); 
 }
 
 
