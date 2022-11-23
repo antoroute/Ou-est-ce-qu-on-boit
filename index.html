@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
         <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5lZM_AOHB4Jj-ahHW1Peo75srAZfhAJ8&libraries=places&callback=initMap" type="text/javascript"></script>
 		<script type="module" src="map.js"></script>
+		<script type="module" src="adresses.js"></script>
 		<style type="text/css">
 			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
 				height:400px;
@@ -13,11 +14,19 @@
 	</head>
 	<body>
 		<section>
-			<form action="#Personne" method="post">
-				<div>
-					<p><label>Votre adresse</label> :<br/><input type="text" name="Votre adresse" id= "nom" value="votre adresse" size="60" maxlength="60" /></p>
+			<form action="" method="get" class="form-example">
+				<div class="form-adresse">
+				  <label for="name">Enter Adresse1: </label>
+				  <input type="text" name="adresse" id="adresse" required>
 				</div>
-			</form>
+				<div class="form-adresse">
+				  <label for="email">Enter Adresse2: </label>
+				  <input type="text" name="adresse" id="adresse" required>
+				</div>
+				<div class="form-adresse">
+				  <input type="submit" value="Rechercher Bar" onclick="getadresse();" >
+				</div>
+			  </form>
 		</section>
 		<div id="map">
 			<!-- Ici s'affichera la carte -->

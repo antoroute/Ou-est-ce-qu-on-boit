@@ -1,5 +1,5 @@
-import {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location,radius,type} from "./barycentre.js";
-
+import {barycentreLatitude,barycentreLongitude,location,radius,type} from "./barycentre.js";
+import {getadresse,listeAdresseLatitude,listeAdresseLongitude} from "./adresses.js";
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var lat = barycentreLatitude(listeAdresseLatitude);
 var lon = barycentreLongitude(listeAdresseLongitude);
@@ -11,7 +11,7 @@ function initMap() {
         // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
         center: new google.maps.LatLng(lat, lon), 
         // Nous définissons le zoom par défaut
-        zoom: 11, 
+        zoom: 15, 
         // Nous définissons le type de carte (ici carte routière)
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         // Nous activons les options de contrôle de la carte (plan, satellite...)
@@ -37,7 +37,6 @@ function rechercheBar(){
         radius: '500',
         type: ['bar']
       };
-    
     
     var service = new google.maps.places.PlacesService(map);
 
@@ -88,6 +87,10 @@ function createMarker(objPlace) {
 window.onload = function(){
     //console.log(google.maps.places.PlaceSearchRequest(location,radius,type));
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+    getadresse();
+    console.log('map1');
+    console.log(listeAdresseLatitude);
+    console.log(listeAdresseLongitude);
     initMap(); 
     rechercheBar();
     var marker = new google.maps.Marker({
@@ -102,4 +105,3 @@ window.onload = function(){
 };
 
 
-export {map};

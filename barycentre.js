@@ -25,7 +25,5 @@ var radius = 500;
 var location = {lat: 48.848963, lng: 2.3517686666666666};
 var type = "Bar"
 
-// google.maps.places.PlaceSearchRequest(location,radius,type);
-
 
 export {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location,radius,type};
