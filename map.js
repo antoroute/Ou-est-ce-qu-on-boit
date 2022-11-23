@@ -63,7 +63,7 @@ function createMarker(objPlace) {
     var objMarker = new google.maps.Marker({
         position: objPlace.geometry.location,
         map: map,
-        icon: "./biere.png",
+        icon: "./biere1.png",
         title: objPlace.name
     });
 
