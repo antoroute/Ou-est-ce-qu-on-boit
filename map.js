@@ -1,4 +1,5 @@
 import {barycentreLatitude,barycentreLongitude,listeAdresseLatitude,listeAdresseLongitude,location,radius,type} from "./barycentre.js";
+
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var lat = barycentreLatitude(listeAdresseLatitude);
 var lon = barycentreLongitude(listeAdresseLongitude);
@@ -29,15 +30,45 @@ function initMap() {
         }
     });
 }
-console.log(google.maps.places.PlaceSearchRequest({location: {lat: lat, lng: lon},radius:radius,type:type}));
+//recherche de bar
+function rechercheBar(){
+    var request = {
+        location: {lat: lat, lng: lon},
+        radius: '500',
+        type: 'bar',
+      };
+    
+    
+    var service = new google.maps.places.PlacesService(map);
+
+    service.nearbySearch(request, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            console.log(results[i]['geometry']['viewport']['Za']['hi']);
+            console.log(results[i]['geometry']['viewport']['Ia']['hi']);
+            let positionBar ={lat: results[i]['geometry']['viewport']['Za']['hi'], lng: results[i]['geometry']['viewport']['Ia']['hi']};
+            new google.maps.Marker({position:positionBar,map:map});
+        }
+      }
+    });
+}
+
+
 window.onload = function(){
     //console.log(google.maps.places.PlaceSearchRequest(location,radius,type));
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap(); 
+    rechercheBar();
     var marker = new google.maps.Marker({
         // Nous définissons sa position (syntaxe json)
         position: {lat: lat, lng: lon},
         // Nous définissons à quelle carte il est ajouté
-        map: map
+        map: map,
+        icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        }
     });
 };
+
+
+export {map};

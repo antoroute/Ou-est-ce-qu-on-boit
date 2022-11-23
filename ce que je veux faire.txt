@@ -9,4 +9,4 @@ je pense:
 	-une fois ce point trouve chercher tt les bars(+4 etoiles) 
 		-dans cercle d'un certain rayon 
 		chuis pas encore sur de la methode
-		-
+	-faire diff epsi
