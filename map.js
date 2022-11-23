@@ -56,14 +56,14 @@ function rechercheBar(){
     });
 }
 
-var objInfoWindow = new google.maps.InfoWindow()
+var objInfoWindow = new google.maps.InfoWindow();
 
 function createMarker(objPlace) {
     
     var objMarker = new google.maps.Marker({
         position: objPlace.geometry.location,
         map: map,
-        icon: "./biere1.png",
+        icon: "./biere.png",
         title: objPlace.name
     });
 
