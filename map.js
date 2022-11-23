@@ -48,7 +48,8 @@ function rechercheBar(){
             console.log(results[i]['geometry']['viewport']['Za']['hi']);
             console.log(results[i]['geometry']['viewport']['Ia']['hi']);
             let positionBar ={lat: results[i]['geometry']['viewport']['Za']['hi'], lng: results[i]['geometry']['viewport']['Ia']['hi']};
-            new google.maps.Marker({position:positionBar,map:map,label:'i'});
+            new google.maps.Marker({position:positionBar,map:map,label:'i'
+        });
         }
       }
     });
