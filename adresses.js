@@ -1,6 +1,8 @@
+import {initMap,rechercheBarProche} from "./map.js";
+import {barycentreLatitude,barycentreLongitude} from "./barycentre.js"
 
-var listeAdresseLatitude=[48.847644,48.875993,48.823252];
-var listeAdresseLongitude=[2.352573,2.346739,2.355994];
+var listeAdresseLatitude=[];
+var listeAdresseLongitude=[];
 
 var geocoder = new google.maps.Geocoder();
 
@@ -19,6 +21,12 @@ function getadresse(){
               console.log('adresse2');
               console.log(listeAdresseLatitude);
               console.log(listeAdresseLongitude);
+              if (i = (adresse.length-1)){
+                var la = barycentreLatitude(listeAdresseLatitude);
+                var lo = barycentreLongitude(listeAdresseLongitude);
+                rechercheBarProche({lat: la, lng: lo});
+                initMap(la,lo);
+              }
             } else {
               alert('Geocode was not successful for the following reason: ' + status);
             }
@@ -28,6 +36,7 @@ function getadresse(){
     console.log('adresse');
     console.log(listeAdresseLatitude);
     console.log(listeAdresseLongitude);
+    
 }
 
 export {getadresse,listeAdresseLatitude,listeAdresseLongitude};

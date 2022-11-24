@@ -1,17 +1,15 @@
 import {barycentreLatitude,barycentreLongitude,location,radius,type} from "./barycentre.js";
 import {getadresse,listeAdresseLatitude,listeAdresseLongitude} from "./adresses.js";
 // On initialise la latitude et la longitude de Paris (centre de la carte)
-var lat = barycentreLatitude(listeAdresseLatitude);
-var lon = barycentreLongitude(listeAdresseLongitude);
 var map = null;
 // Fonction d'initialisation de la carte
-function initMap() {
+function initMap(lat,lon) {
     // Créer l'objet "map" et l'insèrer dans l'élément HTML qui a l'ID "map"
     map = new google.maps.Map(document.getElementById("map"), {
         // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
         center: new google.maps.LatLng(lat, lon), 
         // Nous définissons le zoom par défaut
-        zoom: 15, 
+        zoom: 14, 
         // Nous définissons le type de carte (ici carte routière)
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         // Nous activons les options de contrôle de la carte (plan, satellite...)
@@ -31,9 +29,9 @@ function initMap() {
     });
 }
 //recherche de bar
-function rechercheBar(){
+function rechercheBarProche(lo){
     var request = {
-        location: {lat: lat, lng: lon},
+        location: lo,
         radius: '500',
         type: ['bar']
       };
@@ -49,7 +47,6 @@ function rechercheBar(){
             //console.log(results[i]);
             //console.log(results[i]['geometry']['viewport']['Za']['hi']);
             //console.log(results[i]['geometry']['viewport']['Ia']['hi']);
-            
         }
       }
     });
@@ -84,24 +81,4 @@ function createMarker(objPlace) {
 }
 
 
-window.onload = function(){
-    //console.log(google.maps.places.PlaceSearchRequest(location,radius,type));
-    // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
-    getadresse();
-    console.log('map1');
-    console.log(listeAdresseLatitude);
-    console.log(listeAdresseLongitude);
-    initMap(); 
-    rechercheBar();
-    var marker = new google.maps.Marker({
-        // Nous définissons sa position (syntaxe json)
-        position: {lat: lat, lng: lon},
-        // Nous définissons à quelle carte il est ajouté
-        map: map,
-        icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-        }
-    });
-};
-
-
+export {map,initMap,rechercheBarProche};
