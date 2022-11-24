@@ -32,7 +32,7 @@ function initMap(lat,lon) {
 function rechercheBarProche(lo){
     var request = {
         location: lo,
-        radius: '500',
+        radius: '800',
         type: ['bar']
       };
     
