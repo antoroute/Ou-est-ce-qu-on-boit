@@ -18,9 +18,9 @@ function getadresse(){
             if (status == 'OK') {
               listeAdresseLatitude.push(results[0].geometry.viewport.Za.hi);
               listeAdresseLongitude.push(results[0].geometry.viewport.Ia.hi);
-              console.log('adresse2');
-              console.log(listeAdresseLatitude);
-              console.log(listeAdresseLongitude);
+              //console.log('adresse2');
+              //console.log(listeAdresseLatitude);
+              //console.log(listeAdresseLongitude);
               if (i = (adresse.length-1)){
                 var la = barycentreLatitude(listeAdresseLatitude);
                 var lo = barycentreLongitude(listeAdresseLongitude);
@@ -33,9 +33,9 @@ function getadresse(){
         });
     }
     //listeAdresseLongitude,listeAdresseLatitude=codeAddress(adresse[i]);
-    console.log('adresse');
-    console.log(listeAdresseLatitude);
-    console.log(listeAdresseLongitude);
+    //console.log('adresse');
+    //console.log(listeAdresseLatitude);
+    //console.log(listeAdresseLongitude);
     
 }
 

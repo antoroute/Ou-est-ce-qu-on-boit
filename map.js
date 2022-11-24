@@ -1,5 +1,3 @@
-import {barycentreLatitude,barycentreLongitude,location,radius,type} from "./barycentre.js";
-import {getadresse,listeAdresseLatitude,listeAdresseLongitude} from "./adresses.js";
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var map = null;
 // Fonction d'initialisation de la carte
