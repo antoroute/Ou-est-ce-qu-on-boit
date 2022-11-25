@@ -13,6 +13,20 @@
 			/* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
 			height: 650px;
 		}
+
+		#floating-panel {
+			position: absolute;
+			top: 114px;
+			left: 190px;
+			z-index: 10;
+			background-color: #fff;
+			box-shadow: 1px 1px rgba(0, 0, 0, 0.11);
+			padding: 5px;
+			text-align: center;
+			font-family: "Roboto", "sans-serif";
+			line-height: 30px;
+			padding-left: 10px;
+		}
 	</style>
 	<title>Carte</title>
 </head>
@@ -28,6 +42,15 @@
 	</br></br>
 	<a href="./index.html"><button>Reset adresse</button></a>
 	</br></br>
+	<div id="floating-panel">
+		<b>Mode of Travel: </b>
+		<select id="mode">
+			<option value="TRANSITDRIVING">Transit</option>
+			<option value="WALKING">Walking</option>
+			<option value="BICYCLING">Bicycling</option>
+			<option value="">Driving</option>
+		</select>
+	</div>
 	<div id="map">
 		<!-- Ici s'affichera la carte -->
 	</div>

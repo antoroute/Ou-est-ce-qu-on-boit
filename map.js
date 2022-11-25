@@ -1,7 +1,12 @@
+import {
+  calcRoute
+} from "./calculRoute.js";
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var map = null;
 // Fonction d'initialisation de la carte
 function initMap(lat, lon) {
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const directionsService = new google.maps.DirectionsService();
     // Créer l'objet "map" et l'insèrer dans l'élément HTML qui a l'ID "map"
     map = new google.maps.Map(document.getElementById("map"), {
         // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
@@ -25,6 +30,12 @@ function initMap(lat, lon) {
             style: google.maps.NavigationControlStyle.ZOOM_PAN
         }
     });
+    document.getElementById("mode").addEventListener(
+        "change",
+        () => {
+            calcRoute(directionsService, directionsRenderer);
+        }
+      );
 }
 
 var objInfoWindow = new google.maps.InfoWindow()
