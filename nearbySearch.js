@@ -1,27 +1,34 @@
 import {
-  map
+  map,
+  createMarker
 } from "./map.js";
 
-function rechercheBar() {
+//recherche de bar
+function rechercheBarProche(lo) {
   var request = {
-    query: 'Bar',
-    fields: ['name', 'geometry'],
-    locationBias: 1000,
+      location: lo,
+      radius: '1000',
+      type: ['bar']
   };
-
 
   var service = new google.maps.places.PlacesService(map);
 
-  service.findPlaceFromQuery(request, function (results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
+  service.nearbySearch(request, function (results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+              if (results[i].types[0] !== "bar") {
+                  results.pop(i);
+              } else {
+                  createMarker(results[i])
+              };
+              //console.log(results[i]);
+              //console.log(results[i]['geometry']['viewport']['Za']['hi']);
+              //console.log(results[i]['geometry']['viewport']['Ia']['hi']);
+          }
       }
-      map.setCenter(results[0].geometry.location);
-    }
   });
 }
 
 export {
-  rechercheBar
+  rechercheBarProche
 };

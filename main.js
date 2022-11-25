@@ -1,6 +1,5 @@
 import {
-    initMap,
-    rechercheBarProche
+    initMap
 } from "./map.js";
 import {
     getadresse,
@@ -10,7 +9,6 @@ import {
 import {
     barycentreLatitude,
     barycentreLongitude,
-    conteur
 } from "./barycentre.js"
 
 

@@ -1,7 +1,9 @@
 import {
   initMap,
-  rechercheBarProche
 } from "./map.js";
+import {
+  rechercheBarProche
+} from "./nearbySearch.js";
 import {
   barycentreLatitude,
   barycentreLongitude
