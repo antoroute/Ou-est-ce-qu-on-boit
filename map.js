@@ -1,12 +1,14 @@
 import {
-  calcRoute
+    calcRoute
 } from "./calculRoute.js";
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var map = null;
+var start;
+var end;
 // Fonction d'initialisation de la carte
 function initMap(lat, lon) {
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-    const directionsService = new google.maps.DirectionsService();
+    //const directionsRenderer = new google.maps.DirectionsRenderer();
+    //const directionsService = new google.maps.DirectionsService();
     // Créer l'objet "map" et l'insèrer dans l'élément HTML qui a l'ID "map"
     map = new google.maps.Map(document.getElementById("map"), {
         // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
@@ -33,9 +35,14 @@ function initMap(lat, lon) {
     document.getElementById("mode").addEventListener(
         "change",
         () => {
-            calcRoute(directionsService, directionsRenderer);
+            start = 'Pl. du Panthéon 75005 Paris France';
+            end = 'Rue de Rivoli 75001 Paris France';
+            calcRoute();
+            start = 'Pl. du Panthéon 75005 Paris France';
+            end = 'Place Georges-Pompidou 75004 Paris France';
+            calcRoute();
         }
-      );
+    );
 }
 
 var objInfoWindow = new google.maps.InfoWindow()
@@ -70,5 +77,7 @@ function createMarker(objPlace) {
 export {
     map,
     initMap,
-    createMarker
+    createMarker,
+    start,
+    end
 };

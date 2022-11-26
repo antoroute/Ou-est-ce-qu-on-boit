@@ -1,29 +1,40 @@
 import {
-    map
+    map,
+    start,
+    end
 } from "./map.js";
 
-var directionsService = new google.maps.DirectionsService();
-var directionsRenderer = new google.maps.DirectionsRenderer();
+var i = 0;
 
 function calcRoute() {
+    console.log(i);
+    var S = window['Service' + i];
+    var R = window['Renderer' + i];
+
+    S = new google.maps.DirectionsService();
+    R = new google.maps.DirectionsRenderer();
+
     var selectedMode = document.getElementById('mode').value;
-    var start = '711 W Jackson Blvd Chicago, IL 60661';
-    var end = '555W W Harrison St Chicago, IL 60607';
+
     var request = {
         origin: start,
         destination: end,
-        travelMode: google.maps.TravelMode[selectedMode]
+        travelMode: google.maps.TravelMode[selectedMode],
+        unitSystem: google.maps.DirectionsUnitSystem.METRIC
     };
-    directionsService.route(request, function (result, status) {
+    S.route(request, function (result, status) {
         if (status == 'OK') {
             console.log(result);
             console.log(result.routes[0].legs[0].duration);
             console.log(result.routes[0].legs[0].duration.value);
-            directionsRenderer.setDirections(result);
-            directionsRenderer.setMap(map);
+            R.setDirections(result);
+            R.suppressMarkers = true;
+            R.setMap(map);
         }
     });
+    i += 1;
 }
 
-
-export{calcRoute};
+export {
+    calcRoute
+};
