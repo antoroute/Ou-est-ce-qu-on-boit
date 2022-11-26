@@ -3,10 +3,8 @@ import {
   createMarker
 } from "./map.js";
 import {
-  calcRoute
+  determinationTrajet
 } from "./calculRoute.js";
-var start;
-var end;
 
 var listeBar =[];
 
@@ -23,7 +21,7 @@ function rechercheBarProche(lo,adresse) {
   return service.nearbySearch(request, function (results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-        if (results[i].types[0] !== "bar") {
+        if (results[i].types[0] !== "bar" || results[i].rating<4) {
           results.pop(i);
         } else {
           listeBar.push(results[i].vicinity);
@@ -34,17 +32,10 @@ function rechercheBarProche(lo,adresse) {
         //console.log(results[i]['geometry']['viewport']['Ia']['hi']);
       }
     }
-    start = adresse[0];
-    end = listeBar[2];
-    calcRoute(adresse,listeBar);
-    start = adresse[1];
-    end = listeBar[2];
-    calcRoute(adresse,listeBar);
+    determinationTrajet(adresse,listeBar);
   });
 }
 
 export {
-  start,
-  end,
   rechercheBarProche
 };

@@ -32,17 +32,17 @@ function initMap(lat, lon) {
             style: google.maps.NavigationControlStyle.ZOOM_PAN
         }
     });
-    document.getElementById("mode").addEventListener(
-        "change",
-        () => {
-            start = 'Pl. du Panthéon 75005 Paris France';
-            end = 'Rue de Rivoli 75001 Paris France';
-            calcRoute();
-            start = 'Pl. du Panthéon 75005 Paris France';
-            end = 'Place Georges-Pompidou 75004 Paris France';
-            calcRoute();
-        }
-    );
+    // document.getElementById("mode").addEventListener(
+    //     "change",
+    //     () => {
+    //         start = 'Pl. du Panthéon 75005 Paris France';
+    //         end = 'Rue de Rivoli 75001 Paris France';
+    //         calcRoute();
+    //         start = 'Pl. du Panthéon 75005 Paris France';
+    //         end = 'Place Georges-Pompidou 75004 Paris France';
+    //         calcRoute();
+    //     }
+    // );
 }
 
 var objInfoWindow = new google.maps.InfoWindow()
