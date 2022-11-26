@@ -46,7 +46,6 @@ function getadresse() {
             lng: lo
           });
           initMap(la, lo);
-          calcRoute();
         }
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
