@@ -8,9 +8,7 @@ import {
   barycentreLatitude,
   barycentreLongitude
 } from "./barycentre.js"
-import {
-  calcRoute
-} from "./calculRoute.js";
+
 
 var listeAdresseLatitude = [];
 var listeAdresseLongitude = [];
@@ -37,14 +35,14 @@ function getadresse() {
         //console.log(listeAdresseLatitude);
         //console.log(listeAdresseLongitude);
         if (conteur === i) {
-          console.log(i);
+          //console.log(i);
           //console.log(conteur+'2');
           var la = barycentreLatitude(listeAdresseLatitude);
           var lo = barycentreLongitude(listeAdresseLongitude);
           rechercheBarProche({
             lat: la,
             lng: lo
-          });
+          },adresse);
           initMap(la, lo);
         }
       } else {
