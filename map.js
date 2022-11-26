@@ -77,7 +77,5 @@ function createMarker(objPlace) {
 export {
     map,
     initMap,
-    createMarker,
-    start,
-    end
+    createMarker
 };

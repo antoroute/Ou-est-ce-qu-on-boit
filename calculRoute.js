@@ -1,13 +1,15 @@
 import {
-    map,
+    map
+} from "./map.js";
+import {
     start,
     end
-} from "./map.js";
-
+} from "./nearbySearch.js";
 var i = 0;
 
-function calcRoute() {
-    console.log(i);
+function calcRoute(adresse, listeBar) {
+    console.log(listeBar);
+    console.log(adresse);
     var S = window['Service' + i];
     var R = window['Renderer' + i];
 
@@ -34,6 +36,15 @@ function calcRoute() {
     });
     i += 1;
 }
+
+
+//const months= ["1", "4", "7", "9"];
+//const years = ["2021", "2022", "2027"];
+//const dates = years.flatMap(year => {
+//  return months.map(month => `${month}/1/${year}`);
+//});
+//console.log(dates);
+
 
 export {
     calcRoute
