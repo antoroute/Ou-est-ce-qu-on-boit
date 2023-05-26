@@ -11,7 +11,7 @@ bouttonAjoutAdresse.addEventListener("click", function () {
             '</div> </br>';
     };
     txtAmodifier += '<div class="form-adresse">' +
-        '<input type="submit" value="Rechercher Bar">' +
+        '<input type="submit" class="custom-btn btn-16" value="Commencer la recherche">' +
         '</div>';
     document.getElementById("form-adresse").innerHTML = txtAmodifier;
 });

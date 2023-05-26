@@ -8,41 +8,39 @@
 		type="text/javascript"></script>
 	<script async type="text/javascript" src="./ajoutcodehtml.js"></script>
 	<script type="module" src="./main.js"></script>
-	<style type="text/css">
-		#map {
-			/* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-			height: 650px;
-		}
-
-		#floating-panel {
-			position: relative;
-			top: 50px;
-			left: 185px;
-			height: auto;
-			width: 200px;
-			z-index: 10;
-			background-color: #fff;
-			box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
-			padding: 5px;
-			text-align: center;
-			font-family: "Roboto", "sans-serif";
-			line-height: 30px;
-			padding-left: 10px;
-		}
-	</style>
-	<title>Carte</title>
+	<link rel="stylesheet" href="./style.css">
+	<title>Ou est-ce qu'on boit ?</title>
 </head>
 
 <body>
+	<header>
+		<div class="Titre">
+			<h1>Ou est-ce qu'on boit ?</h1>
+		</div>
+		<div class="SousTitre">
+			<h2>
+				Découvrez les meilleurs bars à proximité et choisissez l'endroit idéal pour passer 
+				un moment inoubliable ! Notre site vous permet de trouver facilement le bar le mieux 
+				notés au plus proche de chez vous et vos amis. Entrez simplement plusieurs adresses, et nous vous fournirons 
+				une liste de bars avec l'itinéraire adéquat. 
+			</h2>
+			<h2>Que vous souhaitiez sortir entre amis ou planifier une soirée spéciale, notre outil vous aidera à 
+				trouver le bar parfait où vous pourrez vous détendre, vous amuser et profiter de l'ambiance. 
+				Ne cherchez plus, laissez-nous vous guider vers la meilleure expérience de sortie !
+			</h2>
+		</div>
+	</header>
+	</br>
+
 	<section>
 		<form action="" method="get" class="form-example" id="form-adresse">
 
 		</form>
 	</section>
 	</br>
-	<button id="bouttonAjoutAdresse">Ajouter une adresse</button>
+	<button id="bouttonAjoutAdresse" class="custom-btn btn-16">Ajouter une adresse</button>
 	</br></br>
-	<a href="./index.html"><button>Reset adresse</button></a>
+	<a href="./index.html"><button class="custom-btn btn-16">Reset adresse</button></a>
 	</br></br>
 	<div id="floating-panel">
 		<b>Mode of Travel: </b>
